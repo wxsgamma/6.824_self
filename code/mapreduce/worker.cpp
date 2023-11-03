@@ -4,7 +4,7 @@
 
 // in fact this can take the thread pool to avoid the time 
 void Worker::map_task(){
-    auto task([](){
+    auto task([&](){
 
     });
     for(int i=0;i<thread_work_num;i++){
@@ -13,7 +13,7 @@ void Worker::map_task(){
 }
 
 void Worker::reduce_task(){
-    auto task([](){
+    auto task([&](){
         
     });
     for(int i=0;i<reduce_task;i++){
