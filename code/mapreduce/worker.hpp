@@ -20,9 +20,14 @@ struct KeyShuffle{
 
 class Worker{
 public:
-    explicit Worker(int8_t mode):m_mode(mode){
-        
-    };
+    explicit Worker(int thread_work,int thread_reduce):
+    thread_reduce_num(thread_reduce),
+    thread_work_num(thread_work){};
+    void map_task(){
+        auto task([](){
+
+        });
+    }
     //pass file fd to this function to split words
     void work_read(std::ifstream& fd){
         std::string _str;
@@ -45,10 +50,8 @@ public:
 private:
     std::vector<std::string> str;
     std::deque<KeyMap> map;
-
-    int8_t m_mode;  
-
-
+    int thread_work_num;
+    int thread_reduce_num;
 
 
 
