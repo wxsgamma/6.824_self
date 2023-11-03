@@ -6,6 +6,7 @@
 #include<fstream>
 #include<sstream>
 #include<deque>
+#include<condition_variable>
 #ifndef WORKER_HPP
 #define WORKER_HPP
 
@@ -46,13 +47,15 @@ public:
     std::deque<KeyShuffle> work_shuffle(std::deque<KeyMap> key_map){
         
     }
-
+    std::mutex mtx;
+    std::condition_variable cv;
 private:
     std::vector<std::string> str;
     std::deque<KeyMap> map;
     int thread_work_num;
     int thread_reduce_num;
-
+    
+    
 
 
 };
