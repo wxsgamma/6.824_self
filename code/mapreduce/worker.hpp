@@ -23,11 +23,11 @@ public:
     explicit Worker(int thread_work,int thread_reduce):
     thread_reduce_num(thread_reduce),
     thread_work_num(thread_work){};
-    void map_task(){
-        auto task([](){
-
-        });
+    virtual ~Worker(){//avoid memory no free
+        
     }
+    void map_task(){};
+    void reduce_task(){};
     //pass file fd to this function to split words
     void work_read(std::ifstream& fd){
         std::string _str;
